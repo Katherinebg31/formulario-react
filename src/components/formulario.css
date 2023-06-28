@@ -1,0 +1,184 @@
+/* Estilos para el contenedor del formulario */
+.formulario-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(to bottom, #234247, #091835, #234247);
+  color: #fffdfd;
+  text-shadow: 2px 2px 4px #ffffff80;
+  border: 1px solid #7f64f544;
+  border-radius: 20px;
+  box-shadow: 10px 15px 15px #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+/* Estilos para mensajes de error */
+.errorm {
+  color: #e70000;
+  text-shadow: none;
+  font-size: 12px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Estilos para etiquetas */
+label {
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 3px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #e2dfdf;
+  border-radius: 2px;
+  outline: none;
+}
+
+/* Estilos para campos de entrada de texto */
+.foco {
+  width: 200px;
+  height: 30px;
+  border-radius: 2%;
+  border: none;
+  background-color: #eaf5ec;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Estilos para campos de entrada de texto con enfoque */
+.foco:focus {
+  outline: none;
+}
+
+/* Estilos para el formulario en dispositivos de pantalla con un ancho mínimo de 768px */
+@media screen and (min-width: 768px) {
+  .formulario-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .formulario-container > div {
+    margin-bottom: 0;
+    width: 48%;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    height: 40px;
+    margin-top: 18px !important;
+    background: linear-gradient(to right, #3d5d6b, #5a8c94, #28607a, #4b7b83);
+    border: 1px solid rgb(5, 100, 107);
+    color: #ffffff;
+  }
+}
+
+/* Estilos para el botón de enviar cuando se realiza un desplazamiento */
+button[type="submit"]:hover {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgb(1, 46, 36);
+  background-color: rgb(199, 245, 231) !important;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Estilos para el formulario en dispositivos de pantalla con un ancho máximo de 767px */
+@media screen and (max-width: 767px) {
+  .formulario-container > div {
+    width: 100%;
+  }
+}
+
+/* Estilos para el botón de enviar */
+button[type="submit"] {
+  width: 100%;
+  height: auto;
+  margin-top: 8px !important;
+  background-color: rgb(199, 245, 231) !important;
+  color: #110101;
+  border-radius: 5%;
+  padding: 3%;
+}
+
+/* Estilos para los botones de color morado y azul */
+.morado,
+.azul {
+  width: 100%;
+  margin-top: 8px !important;
+  background-color: #2d6a4f;
+  color: #b7e4c7;
+  border: 2px solid #0b454d;
+  border-radius: 2px;
+  padding: 5px;
+  font-family: 'Arial Black', sans-serif;
+}
+
+/* Estilos para los botones de color morado y azul al pasar el cursor sobre ellos */
+.morado:hover,
+.azul:hover {
+  width: 100%;
+  margin-top: 8px !important;
+  background-color: #7dffc471;
+  color: #1e201f;
+  border: 2px solid #1db3c74d;
+  border-radius: 2px;
+  padding: 5px;
+  font-family: 'Arial Black', sans-serif;
+}
+
+/* Estilos para el botón "Anterior" */
+.anterior {
+  background-color: #081c15;
+  color: #ffffff;
+  border: 2px solid #1e2e3d;
+  margin-top: 3px;
+  padding: 6px;
+}
+
+/* Estilos para el botón "Anterior" al pasar el cursor sobre él */
+.anterior:hover {
+  background-color: #1b5843;
+  color: #ffffff;
+  border: 2px solid #40607e;
+  margin-top: 3px;
+  padding: 6px;
+}
+
+/* Estilos para el contenedor del resumen de datos */
+.resumen {
+  background-color: #b7e4c7;
+  width: 100%;
+  height: 100%;
+  color: #0e0101;
+  border-radius: 2%;
+  border: 2px solid rgb(9, 68, 87);
+  margin: 10px;
+  font-size: 16px;
+  padding: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  opacity: 0.8;
+}
+
+/* Estilos para párrafos */
+p {
+  color: #000000;
+  -webkit-text-stroke: 1px black;
+}
+
+/* Estilos para campos de entrada numéricos */
+#age, #phone {
+  appearance: textfield;
+}
+
+/* Estilos para los botones de incremento y decremento en campos de entrada numéricos */
+#age::-webkit-inner-spin-button,
+#age::-webkit-outer-spin-button,
+#phone::-webkit-inner-spin-button,
+#phone::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
