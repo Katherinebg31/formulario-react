@@ -86,6 +86,7 @@ const Formulario = () => {
     setIsSubmitted(false);
     setSubmittedData(null);
     setCurrentStep(1);
+    window.location.reload();
   };
 
   // Función para manejar la edición del formulario
@@ -108,7 +109,7 @@ const Formulario = () => {
             {/* Paso 1: Información personal */}
             {currentStep === 1 && (
               <div>
-                <label htmlFor="username">Nombre de Usuario:</label>
+                <label htmlFor="username">Nombre:</label>
                 <Field type="text" id="username" className="foco" name="username" disabled={isSubmitting} />
                 <ErrorMessage className="errorm" name="username" component="div" />
                 <label htmlFor="lastname">Apellido:</label>
@@ -178,13 +179,13 @@ const Formulario = () => {
       {isSubmitted && (
         <div className="resumen">
           <h3>Confirma!</h3>
-          <p>Nombre de usuario: {submittedData?.username}</p>
-          <p>Apellido: {submittedData?.lastname}</p>
-          <p>Edad: {submittedData?.age}</p>
-          <p>Teléfono: {submittedData?.phone}</p>
-          <p>País: {submittedData?.country}</p>
-          <p>Ciudad: {submittedData?.city}</p>
-          <p>Correo electrónico: {submittedData?.email}</p>
+          <p>Nombre  : {submittedData?.username}</p>
+          <p>Apellido  : {submittedData?.lastname}</p>
+          <p>Edad  : {submittedData?.age}</p>
+          <p>Teléfono  : {submittedData?.phone}</p>
+          <p>País  : {submittedData?.country}</p>
+          <p>Ciudad  : {submittedData?.city}</p>
+          <p>Correo electrónico  : {submittedData?.email}</p>
           <button type="button" className="morado" onClick={handleEdit}>Editar</button>
           <button type="button" className="azul" onClick={handleEnviarDeTodosModos}>Confirmar</button>
         </div>
