@@ -1,5 +1,32 @@
-/* Estilo para la pagina general */
-body {
+.body {
   background: linear-gradient(to right, #3955576e, #99b9be75, #a4c6c97e, #a0d1be81);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+  body {
+    background-color: #d8eaf0;
+    font-size: 14px;
+  }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    background-color: #e0f7e0;
+    font-size: 16px;
+  }
+}
+
+/* Estilos para PCs */
+@media (min-width: 1025px) {
+  body {
+    background-color: #e4e0f8;
+    font-size: 18px;
+  }
+}
+
 

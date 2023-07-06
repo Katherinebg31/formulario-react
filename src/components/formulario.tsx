@@ -179,13 +179,20 @@ const Formulario = () => {
       {isSubmitted && (
         <div className="resumen">
           <h3>Confirma!</h3>
-          <p>Nombre  : {submittedData?.username}</p>
-          <p>Apellido  : {submittedData?.lastname}</p>
-          <p>Edad  : {submittedData?.age}</p>
-          <p>Teléfono  : {submittedData?.phone}</p>
-          <p>País  : {submittedData?.country}</p>
-          <p>Ciudad  : {submittedData?.city}</p>
-          <p>Correo electrónico  : {submittedData?.email}</p>
+          <p className="submitted-data">Nombre:</p>
+          <p> {submittedData?.username}</p>
+          <p className="submitted-data">Apellido:</p>
+          <p>{submittedData?.lastname}</p>
+          <p className="submitted-data">Edad:</p>
+          <p> {submittedData?.age}</p>
+          <p className="submitted-data">Telefono:</p>
+          <p>{submittedData?.phone}</p>
+          <p className="submitted-data">Pais:</p>
+          <p>{submittedData?.country}</p>
+          <p className="submitted-data">Ciudad:</p>
+          <p>{submittedData?.city}</p>
+          <p className="submitted-data">Correo electrónico: </p>
+          <p>{submittedData?.email}</p>
           <button type="button" className="morado" onClick={handleEdit}>Editar</button>
           <button type="button" className="azul" onClick={handleEnviarDeTodosModos}>Confirmar</button>
         </div>

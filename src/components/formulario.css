@@ -4,9 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
-  max-width: 350px;
-  margin: 0 auto;
+  height: 85vh;
   padding: 20px;
   background: linear-gradient(to left, #0e2b30ee, #152241e8);
   color: #ece3bc;
@@ -14,9 +12,16 @@
   border: 1px solid #ffffff44;
   border-radius: 10px;
   box-shadow: 10px 15px 15px #000000;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   margin-top: 100px;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.formulario-container > div {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 /* Estilos para mensajes de error */
@@ -65,32 +70,23 @@ label {
 
   
 
-  .formulario-container > div {
-    margin-bottom: 0;
-    width: 48%;
-  }
-
   /* Estilos para el botón de enviar */
   button[type="submit"] {
     width: 100%;
     height: 40px;
-    margin-top: 18px !important;
+    margin-top: 20px;
     background-color: #f3e3b6;
     border: 1px solid rgb(107, 75, 5);
     color: #000000;
-    border-radius: 5%;
-    padding: 3%;
+    border-radius: 5px;
+    padding: 5px;
   }
 }
 
 /* Estilos para el botón de enviar cuando se realiza un desplazamiento */
 button[type="submit"]:hover {
-  width: 100%;
-  height: 40px;
-  border: 2px solid #000000;
   background-color:#000000;
   color:#f3e3b6;
-  cursor: pointer;
 }
 
 /* Estilos para el formulario en dispositivos de pantalla con un ancho máximo de 767px */
@@ -133,9 +129,8 @@ button[type="submit"]:hover {
   background-color: #ece3bc;
   color: #0e0000;
   border: 2px solid #8d8562;
-  margin-top: 13px;
-  margin-right: 4px;
-  padding: 6px;
+  margin-top: 20px;
+  padding: 5px;
   border-radius: 3px;
 }
 
@@ -144,31 +139,44 @@ button[type="submit"]:hover {
   background-color: #000000;
   color: #ece3bc;
   border: 2px solid #000000;
-  margin-right: 4px;
-  padding: 6px;
 }
 
 /* Estilos para el contenedor del resumen de datos */
 .resumen {
   background-color:#c0bfbcd5;
   width: 100%;
-  height: 85vh;
   color: #0e0101;
   border-radius: 2%;
   border: 1px solid #33323270;
-  margin-top: 40px;
-  font-size: 16px;
-  padding: 20px;
+  margin: 10px;
+  font-size: 14px;
+  padding: 30px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 
 h3 {
   color:#000224;
 }
+
+
 /* Estilos para párrafos */
+
+.submitted-data {
+  color: #19022c;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 p {
   color: #000000;
-  
+  margin: 2px;
+  font-size: 12px;
 }
 
 /* Estilos para campos de entrada numéricos */
@@ -184,3 +192,6 @@ p {
   -webkit-appearance: none;
   margin: 0;
 }
+
+
+
