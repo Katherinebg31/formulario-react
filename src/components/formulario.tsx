@@ -9,8 +9,8 @@ interface FormValues {
   lastname: string;
   country: string;
   city: string;
-  age: number;
-  phone: number;
+  age: string;
+  phone: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -53,8 +53,8 @@ const initialValues: FormValues = {
   lastname: '',
   country: '',
   city: '',
-  age: 0,
-  phone: 0,
+  age: '',
+  phone: '',
   email: '',
   password: '',
   confirmPassword: '',
