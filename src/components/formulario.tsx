@@ -7,14 +7,15 @@ import './formulario.css';
 interface FormValues {
   username: string;
   lastname: string;
-  age: number;
-  phone: number;
   country: string;
   city: string;
+  age: number;
+  phone: number;
   email: string;
   password: string;
   confirmPassword: string;
 }
+
 
 // Definición del esquema de validación con Yup
 const validationSchema = Yup.object().shape({
@@ -22,34 +23,38 @@ const validationSchema = Yup.object().shape({
   username: Yup.string().required('El nombre de usuario es obligatorio'),
   // Validación para el apellido de usuario
   lastname: Yup.string().required('El apellido de usuario es obligatorio'),
-  // Validación para la edad
-  age: Yup.number().required('La edad es obligatoria'),
-  // Validación para el número de teléfono
-  phone: Yup.number().required('El número de teléfono es obligatorio'),
   // Validación para el país
   country: Yup.string().required('El país es obligatorio'),
   // Validación para la ciudad
   city: Yup.string().required('La ciudad es obligatoria'),
+  // Validación para la edad
+  age: Yup.number().required('La edad es obligatoria'),
+  // Validación para el número de teléfono
+  phone: Yup.number().required('El número de teléfono es obligatorio'),
   // Validación para el correo electrónico
   email: Yup.string().email('Formato de correo electrónico inválido').required('El correo electrónico es obligatorio'),
   // Validación para la contraseña
-  password: Yup.string().required('La contraseña es obligatoria'),
-  // Validación para la confirmación de contraseña
+  password: Yup.string()
+    .required('La contraseña es obligatoria')
+    .min(6, 'La contraseña debe tener al menos 6 caracteres')
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+      'La contraseña debe contener al menos una mayúscula, una minúscula, un número y un carácter especial'
+    ),
   confirmPassword: Yup.string()
     .required('La confirmación de contraseña es obligatoria')
-    .test('password-match', 'Las contraseñas deben coincidir', function (value) {
-      return this.parent.password === value;
-    }),
+    .oneOf([Yup.ref('password')], 'Las contraseñas deben coincidir'),
 });
+
 
 // Valores iniciales para el formulario
 const initialValues: FormValues = {
   username: '',
   lastname: '',
-  age: 0,
-  phone: 3,
   country: '',
   city: '',
+  age: 0,
+  phone: 0,
   email: '',
   password: '',
   confirmPassword: '',
@@ -121,30 +126,30 @@ const Formulario = () => {
 
             {/* Paso 2: Información de contacto */}
             {currentStep === 2 && (
-              <div>
-                <label htmlFor="age">Edad:</label>
-                <Field type="number" id="age" className="foco" name="age" inputMode="numeric" disabled={isSubmitting} />
-                <ErrorMessage className="errorm" name="age" component="div" />
-                <label htmlFor="phone">Teléfono:</label>
-                <Field type="number" id="phone" className="foco" name="phone" inputMode="numeric" disabled={isSubmitting} />
-                <ErrorMessage className="errorm" name="phone" component="div" />
-                <button className="anterior" type="button" onClick={handlePreviousStep}>Anterior</button>
-                <button className="anterior" type="button" onClick={handleNextStep}>Siguiente</button>
-              </div>
+               <div>
+               <label htmlFor="country">País:</label>
+               <Field type="text" id="country" className="foco" name="country" disabled={isSubmitting} />
+               <ErrorMessage className="errorm" name="country" component="div" />
+               <label htmlFor="city">Ciudad:</label>
+               <Field type="text" id="city" className="foco" name="city" disabled={isSubmitting} />
+               <ErrorMessage className="errorm" name="city" component="div" />
+               <button className="anterior" type="button" onClick={handlePreviousStep}>Anterior</button>
+               <button className="anterior" type="button" onClick={handleNextStep}>Siguiente</button>
+             </div>
             )}
 
             {/* Paso 3: Información de ubicación */}
             {currentStep === 3 && (
               <div>
-                <label htmlFor="country">País:</label>
-                <Field type="text" id="country" className="foco" name="country" disabled={isSubmitting} />
-                <ErrorMessage className="errorm" name="country" component="div" />
-                <label htmlFor="city">Ciudad:</label>
-                <Field type="text" id="city" className="foco" name="city" disabled={isSubmitting} />
-                <ErrorMessage className="errorm" name="city" component="div" />
-                <button className="anterior" type="button" onClick={handlePreviousStep}>Anterior</button>
-                <button className="anterior" type="button" onClick={handleNextStep}>Siguiente</button>
-              </div>
+              <label htmlFor="age">Edad:</label>
+              <Field type="number" id="age" className="foco" name="age" inputMode="numeric" disabled={isSubmitting} />
+              <ErrorMessage className="errorm" name="age" component="div" />
+              <label htmlFor="phone">Teléfono:</label>
+              <Field type="number" id="phone" className="foco" name="phone" inputMode="numeric" disabled={isSubmitting} />
+              <ErrorMessage className="errorm" name="phone" component="div" />
+              <button className="anterior" type="button" onClick={handlePreviousStep}>Anterior</button>
+              <button className="anterior" type="button" onClick={handleNextStep}>Siguiente</button>
+            </div>
             )}
 
             {/* Paso 4: Información de correo electrónico */}
@@ -183,14 +188,14 @@ const Formulario = () => {
           <p> {submittedData?.username}</p>
           <p className="submitted-data">Apellido:</p>
           <p>{submittedData?.lastname}</p>
-          <p className="submitted-data">Edad:</p>
-          <p> {submittedData?.age}</p>
-          <p className="submitted-data">Telefono:</p>
-          <p>{submittedData?.phone}</p>
           <p className="submitted-data">Pais:</p>
           <p>{submittedData?.country}</p>
           <p className="submitted-data">Ciudad:</p>
           <p>{submittedData?.city}</p>
+          <p className="submitted-data">Edad:</p>
+          <p> {submittedData?.age}</p>
+          <p className="submitted-data">Telefono:</p>
+          <p>{submittedData?.phone}</p>
           <p className="submitted-data">Correo electrónico: </p>
           <p>{submittedData?.email}</p>
           <button type="button" className="morado" onClick={handleEdit}>Editar</button>
